@@ -20,7 +20,10 @@ MonoBehaviour:
   - speakerName: Player
     paragraphs: asdasdasdasdasdadsasd
   - speakerName: Ray
-    paragraphs: a
+    paragraphs: "{\r\n        backgroundSpriteRenderer = transform.Find(\"Background\").GetComponent<SpriteRenderer>();\r\n       
+      textMeshPro = transform.Find(\"Text\").GetComponent<TMPro.TextMeshPro>();\r\n       
+      playerTransform = GameObject.FindGameObjectWithTag(\"Player\").GetComponent<Transform>();\r\n   
+      }"
   - speakerName: Ray
     paragraphs: b
   - speakerName: Ray
@@ -28,4 +31,7 @@ MonoBehaviour:
   - speakerName: Ray
     paragraphs: asdas
   - speakerName: Player
-    paragraphs: wdwd
+    paragraphs: "{\r\n        backgroundSpriteRenderer = transform.Find(\"Background\").GetComponent<SpriteRenderer>();\r\n       
+      textMeshPro = transform.Find(\"Text\").GetComponent<TMPro.TextMeshPro>();\r\n       
+      playerTransform = GameObject.FindGameObjectWithTag(\"Player\").GetComponent<Transform>();\r\n   
+      }"
