@@ -8,14 +8,17 @@ public class testinteract : Item
     void Start()
     {
         INTERACT_DISTANCE = 2f;
-
-        Interact();
-        Debug.Log("Test Interact");
     }
+
+    public override void Interact(){
+        Debug.Log($"Interacting with {interaction.objectName}");
+    }
+
+
 
     // Update is called once per frame
-    void Update()
-    {
-        PlayerNearby();
-    }
+    // void Update()
+    // {
+       
+    // }
 }

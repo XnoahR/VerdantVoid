@@ -5,20 +5,21 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour, IInteractable
 {
     private Transform playerTransform;
-    protected SpriteRenderer spriteRenderer;
+    protected SpriteRenderer interactSign;
 
     private bool wasPlayerNearby = false; // to check if player was nearby in the last frame, later remove this
 
     [SerializeField]
     protected float INTERACT_DISTANCE;
+    public InteractionObject interaction;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        interactSign = transform.GetChild(0).GetComponent<SpriteRenderer>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         Debug.Log("Item Interacted");
     }
@@ -37,9 +38,19 @@ public abstract class Item : MonoBehaviour, IInteractable
             Debug.Log(gameObject.name + ": Player is not nearby anymore");
         }
 
-        spriteRenderer.color = isPlayerNearby ? Color.green : Color.red;
+        interactSign.enabled = isPlayerNearby;
         wasPlayerNearby = isPlayerNearby;
 
         return isPlayerNearby;
     }
+
+
+   private void Update() {
+        PlayerNearby();
+
+        if (PlayerNearby() && Input.GetKeyDown(KeyCode.E))
+        {
+            Interact();
+        }
+   }
 }

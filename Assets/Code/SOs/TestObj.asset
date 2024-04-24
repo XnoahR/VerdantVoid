@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bd2bec770ae06449cd057b19f2e3e8, type: 3}
   m_Name: TestObj
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: Uniga
   objectDescription: 
+  interactions:
+  - speakerName: Ray
+    paragraphs: What?
