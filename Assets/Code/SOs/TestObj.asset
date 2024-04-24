@@ -17,3 +17,15 @@ MonoBehaviour:
   interactions:
   - speakerName: Ray
     paragraphs: What?
+  - speakerName: Player
+    paragraphs: asdasdasdasdasdadsasd
+  - speakerName: Ray
+    paragraphs: a
+  - speakerName: Ray
+    paragraphs: b
+  - speakerName: Ray
+    paragraphs: bv
+  - speakerName: Ray
+    paragraphs: asdas
+  - speakerName: Player
+    paragraphs: wdwd

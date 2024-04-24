@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testinteract : Item
+public class TestInteract : Item
 {
     // Start is called before the first frame update
     void Start()
@@ -10,15 +10,15 @@ public class testinteract : Item
         INTERACT_DISTANCE = 2f;
     }
 
-    public override void Interact(){
+    public override void Interact()
+    {
         Debug.Log($"Interacting with {interaction.objectName}");
+        Chat();
     }
 
-
-
-    // Update is called once per frame
-    // void Update()
-    // {
-       
-    // }
+    public override void Chat()
+    {
+        Debug.Log($"Chatting with {interaction.objectName}");
+        chatBubble.Setup(interaction.interactions, playerTransform);
+    }
 }

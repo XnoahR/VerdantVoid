@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour, IInteractable
+public abstract class Item : MonoBehaviour, IInteractable, IChatable
 {
-    private Transform playerTransform;
+    protected Transform playerTransform;
     protected SpriteRenderer interactSign;
+    protected ChatBubble chatBubble;
 
     private bool wasPlayerNearby = false; // to check if player was nearby in the last frame, later remove this
 
@@ -15,13 +16,19 @@ public abstract class Item : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        interactSign = transform.GetChild(0).GetComponent<SpriteRenderer>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        interactSign = transform.Find("InteractSign").GetComponent<SpriteRenderer>();
+        chatBubble = transform.Find("ChatBubble").GetComponent<ChatBubble>();
     }
 
     public virtual void Interact()
     {
         Debug.Log("Item Interacted");
+    }
+
+    public virtual void Chat()
+    {
+        Debug.Log("Item Chatted");
     }
 
     public bool PlayerNearby()
@@ -44,13 +51,13 @@ public abstract class Item : MonoBehaviour, IInteractable
         return isPlayerNearby;
     }
 
-
-   private void Update() {
+    private void Update()
+    {
         PlayerNearby();
 
         if (PlayerNearby() && Input.GetKeyDown(KeyCode.E))
         {
             Interact();
         }
-   }
+    }
 }
