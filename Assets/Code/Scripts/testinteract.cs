@@ -19,6 +19,6 @@ public class TestInteract : Item
     public override void Chat()
     {
         Debug.Log($"Chatting with {interaction.objectName}");
-        chatBubble.Setup(interaction.interactions, playerTransform);
+        chatBubble.Setup(interaction.interactions);
     }
 }

@@ -13,11 +13,11 @@ public class ChatBubble : MonoBehaviour
     {
         backgroundSpriteRenderer = transform.Find("Background").GetComponent<SpriteRenderer>();
         textMeshPro = transform.Find("Text").GetComponent<TMPro.TextMeshPro>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    public void Setup(List<InteractionObject.Interaction> interactions, Transform playerTransform)
+    public void Setup(List<InteractionObject.Interaction> interactions)
     {
-        this.playerTransform = playerTransform;
         transform.Find("Background").gameObject.SetActive(true);
         transform.Find("Text").gameObject.SetActive(true);
         StartCoroutine(ChatSequence(interactions));
@@ -57,7 +57,7 @@ public class ChatBubble : MonoBehaviour
         for (int i = 0; i <= interaction.paragraphs.Length; i++)
         {
             textMeshPro.text = interaction.paragraphs.Substring(0, i);
-            yield return new WaitForSeconds(0.1f); // Adjust the delay to your liking
+            yield return new WaitForSeconds(0.1f);
         }
         isTyping = false;
     }
