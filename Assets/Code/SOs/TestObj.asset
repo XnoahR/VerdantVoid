@@ -15,23 +15,19 @@ MonoBehaviour:
   objectName: Uniga
   objectDescription: 
   interactions:
-  - speakerName: Ray
-    paragraphs: What?
+  - speakerName: Obj
+    paragraphs: Ayo ke zona dulu bang
   - speakerName: Player
-    paragraphs: asdasdasdasdasdadsasd
-  - speakerName: Ray
-    paragraphs: "{\r\n        backgroundSpriteRenderer = transform.Find(\"Background\").GetComponent<SpriteRenderer>();\r\n       
-      textMeshPro = transform.Find(\"Text\").GetComponent<TMPro.TextMeshPro>();\r\n       
-      playerTransform = GameObject.FindGameObjectWithTag(\"Player\").GetComponent<Transform>();\r\n   
-      }"
-  - speakerName: Ray
-    paragraphs: b
-  - speakerName: Ray
-    paragraphs: bv
-  - speakerName: Ray
-    paragraphs: asdas
+    paragraphs: Oke, ini mau keatas nih. Tenang aja, tenang aja
+  - speakerName: Obj
+    paragraphs: ...
+  - speakerName: Obj
+    paragraphs: ITU DIKANANMU DIKANANMU!
   - speakerName: Player
-    paragraphs: "{\r\n        backgroundSpriteRenderer = transform.Find(\"Background\").GetComponent<SpriteRenderer>();\r\n       
-      textMeshPro = transform.Find(\"Text\").GetComponent<TMPro.TextMeshPro>();\r\n       
-      playerTransform = GameObject.FindGameObjectWithTag(\"Player\").GetComponent<Transform>();\r\n   
-      }"
+    paragraphs: MANA MANA?!
+  - speakerName: Player
+    paragraphs: Okay tenang ini mau fokus ini
+  - speakerName: Obj
+    paragraphs: Bodoh kali kau lah....
+  - speakerName: Player
+    paragraphs: Apa nih...

@@ -6,6 +6,8 @@ public class ChatBubble : MonoBehaviour
 {
     private SpriteRenderer backgroundSpriteRenderer;
     private TMPro.TextMeshPro textMeshPro;
+    //size of the text string
+
     private Transform playerTransform;
     private bool isTyping = false;
 
@@ -57,7 +59,7 @@ public class ChatBubble : MonoBehaviour
         for (int i = 0; i <= interaction.paragraphs.Length; i++)
         {
             textMeshPro.text = interaction.paragraphs.Substring(0, i);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.025f);
         }
         isTyping = false;
     }
