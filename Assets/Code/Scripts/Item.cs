@@ -6,6 +6,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
 {
     protected Transform playerTransform;
     protected SpriteRenderer interactSign;
+    private GameObject chatBubbleGO;
     protected ChatBubble chatBubble;
 
     private bool wasPlayerNearby = false; // to check if player was nearby in the last frame, later remove this
@@ -13,12 +14,15 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     [SerializeField]
     protected float INTERACT_DISTANCE;
     public InteractionObject interaction;
+    public GameplayMaster gameplayMaster;
 
     private void Awake()
     {
+        chatBubbleGO = transform.Find("ChatBubble").gameObject;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         interactSign = transform.Find("InteractSign").GetComponent<SpriteRenderer>();
-        chatBubble = transform.Find("ChatBubble").GetComponent<ChatBubble>();
+        chatBubble = chatBubbleGO.GetComponent<ChatBubble>();
+        gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
     }
 
     public virtual void Interact()
@@ -55,8 +59,9 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     {
         PlayerNearby();
 
-        if (PlayerNearby() && Input.GetKeyDown(KeyCode.E))
+        if (PlayerNearby() && Input.GetKeyDown(KeyCode.E) && gameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
         {
+            gameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
             Interact();
         }
     }

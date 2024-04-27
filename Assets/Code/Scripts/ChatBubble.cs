@@ -10,18 +10,32 @@ public class ChatBubble : MonoBehaviour
 
     private Transform playerTransform;
     private bool isTyping = false;
+    public GameplayMaster gameplayMaster;
+   
+   private GameObject chatBubbleBackground;
+    private GameObject chatBubbleText;
+
 
     private void Awake()
     {
-        backgroundSpriteRenderer = transform.Find("Background").GetComponent<SpriteRenderer>();
-        textMeshPro = transform.Find("Text").GetComponent<TMPro.TextMeshPro>();
+        chatBubbleBackground = transform.Find("Background").gameObject;
+        chatBubbleText = transform.Find("Text").gameObject;
+        backgroundSpriteRenderer = chatBubbleBackground.GetComponent<SpriteRenderer>();
+        textMeshPro = chatBubbleText.GetComponent<TMPro.TextMeshPro>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    private void Start() {
+        gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
+        //size of background
+        // chatBubbleBackground.transform.localScale = new Vector3(1, 1, 1);
+        
     }
 
     public void Setup(List<InteractionObject.Interaction> interactions)
     {
-        transform.Find("Background").gameObject.SetActive(true);
-        transform.Find("Text").gameObject.SetActive(true);
+        chatBubbleBackground.gameObject.SetActive(true);
+        chatBubbleText.gameObject.SetActive(true);
         StartCoroutine(ChatSequence(interactions));
     }
 
@@ -33,8 +47,9 @@ public class ChatBubble : MonoBehaviour
             yield return new WaitForSeconds(1f);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && !isTyping);
         }
-        transform.Find("Background").gameObject.SetActive(false);
-        transform.Find("Text").gameObject.SetActive(false);
+        chatBubbleBackground.gameObject.SetActive(false);
+        chatBubbleText.gameObject.SetActive(false);
+        gameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
     }
 
     private IEnumerator Chat(InteractionObject.Interaction interaction)
@@ -47,7 +62,7 @@ public class ChatBubble : MonoBehaviour
                 ? transform.parent.position
                 : playerTransform.position;
 
-        Vector2 textSize = textMeshPro.GetRenderedValues(false);
+        Vector2 textSize = textMeshPro.GetRenderedValues(false); //size of the text string
         Vector2 padding = new Vector2(3.85f, 3.4f); //magic number
         backgroundSpriteRenderer.size = textSize + padding;
 
