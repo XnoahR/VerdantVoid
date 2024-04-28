@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(canMove);
+        // Debug.Log(canMove);
 
         if (canMove)
         {
@@ -53,11 +53,10 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        Debug.Log("Player Movement");
+        // Debug.Log("Player Movement");
         float horizontalMove = Input.GetAxis("Horizontal");
         isSprint = Input.GetKey(KeyCode.LeftShift) ? true : false;
         PLAYER_SPEED = isSprint ? SPRINT_SPEED : WALK_SPEED;
         rb.velocity = new Vector2(horizontalMove * PLAYER_SPEED, rb.velocity.y);
     }
-
 }

@@ -6,15 +6,15 @@ public class ChatBubble : MonoBehaviour
 {
     private SpriteRenderer backgroundSpriteRenderer;
     private TMPro.TextMeshPro textMeshPro;
+
     //size of the text string
 
     private Transform playerTransform;
     private bool isTyping = false;
     public GameplayMaster gameplayMaster;
-   
-   private GameObject chatBubbleBackground;
-    private GameObject chatBubbleText;
 
+    private GameObject chatBubbleBackground;
+    private GameObject chatBubbleText;
 
     private void Awake()
     {
@@ -25,11 +25,11 @@ public class ChatBubble : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
         //size of background
         // chatBubbleBackground.transform.localScale = new Vector3(1, 1, 1);
-        
     }
 
     public void Setup(List<InteractionObject.Interaction> interactions)
@@ -63,10 +63,10 @@ public class ChatBubble : MonoBehaviour
                 : playerTransform.position;
 
         Vector2 textSize = textMeshPro.GetRenderedValues(false); //size of the text string
-        Vector2 padding = new Vector2(3.85f, 3.4f); //magic number
+        Vector2 padding = new Vector2(1.45f, 3.2f); //magic number
         backgroundSpriteRenderer.size = textSize + padding;
 
-        Vector3 offset = new Vector3(7f, 1.9f + textSize.y, 0f); //magic number
+        Vector3 offset = new Vector3(5.7f, 1.8f + textSize.y, 0f); //magic number
         textMeshPro.transform.localPosition = offset;
 
         textMeshPro.text = "";

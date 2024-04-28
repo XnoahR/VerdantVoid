@@ -1,9 +1,9 @@
-
 using UnityEngine;
 
 public class GameplayMaster : MonoBehaviour
 {
     Cinemachine.CinemachineVirtualCamera vcam;
+
     // Start is called before the first frame update
     //state machine using enum
     public enum GameState
@@ -19,17 +19,18 @@ public class GameplayMaster : MonoBehaviour
     private GameState previousGameState;
 
     private GameObject player;
+
     private void Awake()
     {
-        vcam = GameObject.Find("Virtual Camera").GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        vcam = GameObject
+            .Find("Virtual Camera")
+            .GetComponent<Cinemachine.CinemachineVirtualCamera>();
         player = GameObject.Find("Player");
         //set enum to gameplay
         currentGameState = GameState.Gameplay;
     }
-    void Start()
-    {
 
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
@@ -40,7 +41,6 @@ public class GameplayMaster : MonoBehaviour
             previousGameState = currentGameState;
         }
 
-
         if (Input.GetKeyDown(KeyCode.Escape) && currentGameState != GameState.Pause)
         {
             currentGameState = GameState.Pause;
@@ -49,12 +49,12 @@ public class GameplayMaster : MonoBehaviour
         {
             currentGameState = previousGameState;
         }
-       
+
         checkState();
     }
 
-
-    void checkState(){
+    void checkState()
+    {
         switch (currentGameState)
         {
             case GameState.Cutscene:
@@ -74,7 +74,7 @@ public class GameplayMaster : MonoBehaviour
 
     void CutsceneTime()
     {
-    //    currentGameState = GameState.Cutscene;
+        //    currentGameState = GameState.Cutscene;
         // Play cutscene
         vcam.Follow = null;
         Debug.Log("Cutscene");
@@ -85,7 +85,7 @@ public class GameplayMaster : MonoBehaviour
         // currentGameState = GameState.Gameplay;
         // Play gameplay
         vcam.Follow = player.transform;
-        Debug.Log("Gameplay");
+        // Debug.Log("Gameplay");
     }
 
     void InteractingTime()
