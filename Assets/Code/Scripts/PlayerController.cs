@@ -17,11 +17,18 @@ public class PlayerController : MonoBehaviour
     private GameplayMaster gameplayMaster;
     private bool canMove;
 
+    
+    [Header("Player Animation")]
+
+    public Animator animator;
+    public bool isWalk;
+
     // Start is called before the first frame update
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Start()
@@ -39,6 +46,23 @@ public class PlayerController : MonoBehaviour
         {
             canMove = false;
         }
+
+        if(isWalk)
+        {
+            animator.SetBool("isWalk", true);
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
+        }
+        if(isSprint)
+        {
+            animator.SetBool("isSprint", true);
+        }
+        else
+        {
+            animator.SetBool("isSprint", false);
+        }
     }
 
     void FixedUpdate()
@@ -55,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         // Debug.Log("Player Movement");
         float horizontalMove = Input.GetAxis("Horizontal");
+        isWalk = horizontalMove != 0 ? true : false;
         isSprint = Input.GetKey(KeyCode.LeftShift) ? true : false;
         PLAYER_SPEED = isSprint ? SPRINT_SPEED : WALK_SPEED;
         rb.velocity = new Vector2(horizontalMove * PLAYER_SPEED, rb.velocity.y);
