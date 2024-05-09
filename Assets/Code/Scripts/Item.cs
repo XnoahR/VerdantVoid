@@ -62,6 +62,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
         if (PlayerNearby() && Input.GetKeyDown(KeyCode.E) && gameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
         {
             gameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
+            
             Interact();
         }
     }
