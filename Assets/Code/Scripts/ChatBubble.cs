@@ -11,7 +11,6 @@ public class ChatBubble : MonoBehaviour
 
     private Transform playerTransform;
     private bool isTyping = false;
-    public GameplayMaster gameplayMaster;
 
     private GameObject chatBubbleBackground;
     private GameObject chatBubbleText;
@@ -27,7 +26,6 @@ public class ChatBubble : MonoBehaviour
 
     private void Start()
     {
-        gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
         //size of background
         // chatBubbleBackground.transform.localScale = new Vector3(1, 1, 1);
     }
@@ -49,7 +47,7 @@ public class ChatBubble : MonoBehaviour
         }
         chatBubbleBackground.gameObject.SetActive(false);
         chatBubbleText.gameObject.SetActive(false);
-        gameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
+        GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
     }
 
     private IEnumerator Chat(InteractionObject.Interaction interaction)

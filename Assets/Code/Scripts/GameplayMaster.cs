@@ -15,7 +15,7 @@ public class GameplayMaster : MonoBehaviour
     }
 
     //Current State
-    public GameState currentGameState;
+    public static GameState currentGameState;
     private GameState previousGameState;
 
     public static GameObject player;

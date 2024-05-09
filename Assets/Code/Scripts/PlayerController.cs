@@ -14,13 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float SPRINT_SPEED = 5f;
     private bool isSprint;
-    private GameplayMaster gameplayMaster;
     private bool canMove;
     public bool facingRight = true;
 
-    
     [Header("Player Animation")]
-
     public Animator animator;
     public bool isWalk;
 
@@ -28,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
         animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
@@ -39,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (gameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
+        if (GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
         {
             canMove = true;
         }
@@ -48,7 +44,7 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
 
-        if(isWalk)
+        if (isWalk)
         {
             animator.SetBool("isWalk", true);
         }
@@ -56,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isWalk", false);
         }
-        if(isSprint)
+        if (isSprint)
         {
             animator.SetBool("isSprint", true);
         }

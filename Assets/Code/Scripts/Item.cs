@@ -14,15 +14,13 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     [SerializeField]
     protected float INTERACT_DISTANCE;
     public InteractionObject interaction;
-    public GameplayMaster gameplayMaster;
 
     private void Awake()
     {
         chatBubbleGO = transform.Find("ChatBubble").gameObject;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerTransform = GameplayMaster.player.transform;
         interactSign = transform.Find("InteractSign").GetComponent<SpriteRenderer>();
         chatBubble = chatBubbleGO.GetComponent<ChatBubble>();
-        gameplayMaster = GameObject.Find("Gameplay Master").GetComponent<GameplayMaster>();
     }
 
     public virtual void Interact()
@@ -59,9 +57,13 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     {
         PlayerNearby();
 
-        if (PlayerNearby() && Input.GetKeyDown(KeyCode.E) && gameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
+        if (
+            PlayerNearby()
+            && Input.GetKeyDown(KeyCode.E)
+            && GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay
+        )
         {
-            gameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
+            GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
             Interact();
         }
     }
