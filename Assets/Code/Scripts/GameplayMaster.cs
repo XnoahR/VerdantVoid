@@ -20,6 +20,8 @@ public class GameplayMaster : MonoBehaviour
 
     private GameObject player;
 
+    public static ChangeArea.Position ChangeAreaPosition = ChangeArea.Position.None;
+
     private void Awake()
     {
         vcam = GameObject
@@ -30,7 +32,21 @@ public class GameplayMaster : MonoBehaviour
         currentGameState = GameState.Gameplay;
     }
 
-    void Start() { }
+    void Start()
+    {
+        Debug.Log(ChangeAreaPosition);
+
+        if (ChangeAreaPosition == ChangeArea.Position.L)
+        {
+            player.transform.position =
+                GameObject.Find("ChangeAreaL").transform.position + new Vector3(2.5f, 0, 0);
+        }
+        else if (ChangeAreaPosition == ChangeArea.Position.R)
+        {
+            player.transform.position =
+                GameObject.Find("ChangeAreaR").transform.position + new Vector3(-2.5f, 0, 0);
+        }
+    }
 
     // Update is called once per frame
     void Update()

@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ChangeArea : MonoBehaviour
 {
+    [SerializeField]
+    private string sceneName;
+
+    public enum Position
+    {
+        L,
+        R,
+        None
+    }
+
+    [SerializeField]
+    private Position purposedPosition;
+
     private Transform playerTransform;
     private const float INTERACT_DISTANCE = 1.5f;
 
@@ -17,7 +30,8 @@ public class ChangeArea : MonoBehaviour
     {
         if (PlayerNearby())
         {
-            SceneManager.LoadScene("SceneTest 1");
+            GameplayMaster.ChangeAreaPosition = purposedPosition;
+            SceneManager.LoadScene(sceneName);
         }
     }
 
