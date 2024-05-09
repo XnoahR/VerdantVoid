@@ -18,25 +18,20 @@ public class ChangeArea : MonoBehaviour
     [SerializeField]
     private Position purposedPosition;
 
-    private Transform playerTransform;
     private const float INTERACT_DISTANCE = 1.5f;
-
-    private void Awake()
-    {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
 
     private void Update()
     {
         if (PlayerNearby())
         {
-            GameplayMaster.ChangeAreaPosition = purposedPosition;
+            LevelLoader.ChangeAreaPosition = purposedPosition;
             SceneManager.LoadScene(sceneName);
         }
     }
 
     public bool PlayerNearby()
     {
-        return Mathf.Abs(playerTransform.position.x - transform.position.x) <= INTERACT_DISTANCE;
+        return Mathf.Abs(GameplayMaster.player.transform.position.x - transform.position.x)
+            <= INTERACT_DISTANCE;
     }
 }
