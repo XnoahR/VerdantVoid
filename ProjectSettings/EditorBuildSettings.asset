@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HaizkBase.unity
     guid: 5abad9b6aa88520499c01de1f0d806c0
+  - enabled: 1
+    path: Assets/Scenes/Area/Chapter1_Basement.unity
+    guid: 0dcbf3a3000545d40a9582e45170292c
+  - enabled: 1
+    path: Assets/Scenes/Area/Chapter1_Living Room.unity
+    guid: 61afed66f0074b340b9f3f1728d3e766
   m_configObjects: {}
