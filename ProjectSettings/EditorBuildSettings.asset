@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area/Chapter1_Living Room.unity
     guid: 61afed66f0074b340b9f3f1728d3e766
+  - enabled: 1
+    path: Assets/Scenes/Area/Chapter1_Backyard.unity
+    guid: 9cf24020736518c449eccb9206b5fed6
+  - enabled: 1
+    path: Assets/Scenes/Area/Chapter1_Bedroom.unity
+    guid: bdb0509fb397afa46b672861ec9da59d
   m_configObjects: {}

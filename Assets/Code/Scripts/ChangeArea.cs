@@ -25,7 +25,8 @@ public class ChangeArea : MonoBehaviour
         if (PlayerNearby())
         {
             LevelLoader.changeAreaPosition = purposedPosition;
-            SceneManager.LoadScene(sceneName);
+            // SceneManager.LoadScene(sceneName);
+            LoadingScreenManager.instance.SwitchtoScene(sceneName);
         }
     }
 

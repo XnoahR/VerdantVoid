@@ -19,6 +19,7 @@ public class GameplayMaster : MonoBehaviour
     private GameState previousGameState;
 
     public static GameObject player;
+    [SerializeField] Vector3 objectposition;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class GameplayMaster : MonoBehaviour
         {
             currentGameState = previousGameState;
         }
-
+        objectposition = player.transform.position;
         checkState();
     }
 
