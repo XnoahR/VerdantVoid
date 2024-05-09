@@ -26,6 +26,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     public virtual void Interact()
     {
         Debug.Log("Item Interacted");
+        GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
     }
 
     public virtual void Chat()
@@ -63,7 +64,6 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
             && GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay
         )
         {
-            GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
             Interact();
         }
     }

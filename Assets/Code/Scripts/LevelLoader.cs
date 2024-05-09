@@ -33,6 +33,12 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("WHY ARE YOU HERE");
         }
 
+        GameplayMaster.player.transform.position = new Vector3(
+            GameplayMaster.player.transform.position.x,
+            -0.8997308f, //magic number
+            0
+        );
+
         changeAreaPosition = ChangeArea.Position.None;
         objectName = null;
     }
