@@ -63,7 +63,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
             && GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay
         )
         {
-            gameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
+            GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
             Interact();
         }
     }
