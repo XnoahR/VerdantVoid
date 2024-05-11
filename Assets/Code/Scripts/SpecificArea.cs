@@ -34,6 +34,7 @@ public class SpecificArea : MonoBehaviour, IInteractable
             PlayerNearby()
             && Input.GetKeyDown(KeyCode.E)
             && GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay
+            && !LoadingScreenManager.isLoading
         )
         {
             GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
