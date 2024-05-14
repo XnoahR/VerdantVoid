@@ -48,5 +48,7 @@ public class LevelLoader : MonoBehaviour
         changeAreaPosition = ChangeArea.Position.None;
         Debug.Log("XLevelLoader: " + changeAreaPosition + " " + objectName);
         objectName = null;
+
+        
     }
 }
