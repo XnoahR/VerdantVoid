@@ -47,6 +47,12 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
 
+    
+        animationCheck();
+    }
+
+    private void animationCheck()
+    {
         if (isWalk)
         {
             animator.SetBool("isWalk", true);

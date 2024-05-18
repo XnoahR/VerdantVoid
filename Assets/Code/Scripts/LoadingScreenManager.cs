@@ -19,6 +19,10 @@ public class LoadingScreenManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        Time.timeScale = 1;
+    }
+
      public void SwitchtoScene(string sceneName)
     {
         if (!isLoading) // Check if a scene load operation is not already in progress
@@ -40,6 +44,10 @@ public class LoadingScreenManager : MonoBehaviour
         {
             yield return null;
         }
+        // if(SceneManager.GetActiveScene().name == "MainMenu"){
+        //     //Destroy the loading screen when the main menu scene is loaded
+        //     Destroy(this.gameObject);
+        // }
         yield return new WaitForSeconds(1);
         loadingScreen.SetActive(false);
         isLoading = false; // Reset the flag since the scene load operation has completed
