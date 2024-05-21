@@ -9,6 +9,7 @@ public class LoadingScreenManager : MonoBehaviour
     //Singleton
     public static LoadingScreenManager instance;
     public GameObject loadingScreen;
+    public static bool isLoading = false;
     private void Awake() {
         if(instance != null && instance != this){
             Destroy(this.gameObject);
@@ -18,31 +19,37 @@ public class LoadingScreenManager : MonoBehaviour
         }
     }
 
-    public void SwitchtoScene(string sceneName){
-        loadingScreen.SetActive(true);
-        StartCoroutine(SwitchtoSceneAsync(sceneName));
+    private void Start() {
+        Time.timeScale = 1;
     }
 
-    IEnumerator SwitchtoSceneAsync(string sceneName){
+     public void SwitchtoScene(string sceneName)
+    {
+        if (!isLoading) // Check if a scene load operation is not already in progress
+        {
+            isLoading = true; // Set the flag to indicate that a scene load operation is starting
+            loadingScreen.SetActive(true);
+            StartCoroutine(SwitchtoSceneAsync(sceneName));
+        }
+        else
+        {
+            Debug.Log("A scene load operation is already in progress.");
+        }
+    }
+
+    IEnumerator SwitchtoSceneAsync(string sceneName)
+    {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        while(!asyncLoad.isDone){
+        while (!asyncLoad.isDone)
+        {
             yield return null;
         }
+        // if(SceneManager.GetActiveScene().name == "MainMenu"){
+        //     //Destroy the loading screen when the main menu scene is loaded
+        //     Destroy(this.gameObject);
+        // }
         yield return new WaitForSeconds(1);
         loadingScreen.SetActive(false);
-    }
-
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        isLoading = false; // Reset the flag since the scene load operation has completed
     }
 }

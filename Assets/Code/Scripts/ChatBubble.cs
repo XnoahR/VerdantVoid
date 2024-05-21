@@ -22,10 +22,12 @@ public class ChatBubble : MonoBehaviour
         backgroundSpriteRenderer = chatBubbleBackground.GetComponent<SpriteRenderer>();
         textMeshPro = chatBubbleText.GetComponent<TMPro.TextMeshPro>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        // textMeshPro.font = Resources.Load<TMPro.TMP_FontAsset>("Environment/Fonts/PixelOperatorMain");
     }
 
     private void Start()
     {
+        Debug.Log(textMeshPro.font.name);
         //size of background
         // chatBubbleBackground.transform.localScale = new Vector3(1, 1, 1);
     }

@@ -17,6 +17,7 @@ public class GameplayMaster : MonoBehaviour
     //Current State
     public static GameState currentGameState;
     private GameState previousGameState;
+    private GameObject PauseScreen;
 
     public static GameObject player;
     [SerializeField] Vector3 objectposition;
@@ -29,6 +30,12 @@ public class GameplayMaster : MonoBehaviour
         player = GameObject.Find("Player");
         //set enum to gameplay
         currentGameState = GameState.Gameplay;
+        
+    }
+
+    private void Start() {
+        PauseScreen = GameObject.Find("PauseScreen");
+        PauseScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,16 +47,27 @@ public class GameplayMaster : MonoBehaviour
             previousGameState = currentGameState;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && currentGameState != GameState.Pause)
+        if (Input.GetKeyDown(KeyCode.Escape) && currentGameState != GameState.Pause && LoadingScreenManager.isLoading == false)
         {
+            //not interacting
+            if (currentGameState != GameState.Interacting)
+            {
             currentGameState = GameState.Pause;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && currentGameState == GameState.Pause)
         {
-            currentGameState = previousGameState;
+            RestoreState();
+
         }
         objectposition = player.transform.position;
         checkState();
+    }
+
+    public void RestoreState()
+    {
+        currentGameState = previousGameState;
+        Time.timeScale = 1;
     }
 
     void checkState()
@@ -81,6 +99,7 @@ public class GameplayMaster : MonoBehaviour
 
     void GameplayTime()
     {
+       PauseScreen.SetActive(false);
         // currentGameState = GameState.Gameplay;
         // Play gameplay
         vcam.Follow = player.transform;
@@ -96,8 +115,10 @@ public class GameplayMaster : MonoBehaviour
 
     void PauseTime()
     {
-        // currentGameState = GameState.Pause;
-        // Play pause
+        //Freeze the game and show pause screen
+        Time.timeScale = 0;
+        currentGameState = GameState.Pause;
+        PauseScreen.SetActive(true);
         Debug.Log("Pause");
     }
 }

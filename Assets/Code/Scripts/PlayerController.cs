@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
         {
-            canMove = true;
+            canMove = LoadingScreenManager.isLoading ? false : true;
         }
         else
         {
@@ -47,6 +47,12 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
 
+    
+        animationCheck();
+    }
+
+    private void animationCheck()
+    {
         if (isWalk)
         {
             animator.SetBool("isWalk", true);

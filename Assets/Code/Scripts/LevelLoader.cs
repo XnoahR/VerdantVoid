@@ -15,14 +15,14 @@ public class LevelLoader : MonoBehaviour
         {
             GameplayMaster.player.transform.position =
                 GameObject.Find("ChangeAreaL").transform.position + new Vector3(2.5f, 0, 0);
-            // Debug.Log(GameplayMaster.player.transform.position.x + " " + GameplayMaster.player.transform.position.y + " " + GameplayMaster.player.transform.position.z);
+            Debug.Log("ChangeAreaL");
         }
         else if (changeAreaPosition == ChangeArea.Position.R)
         {
             GameplayMaster.player.transform.position =
                 GameObject.Find("ChangeAreaR").transform.position + new Vector3(-2.5f, 0, 0);
 
-            // Debug.Log(GameplayMaster.player.transform.position.x + " " + GameplayMaster.player.transform.position.y + " " + GameplayMaster.player.transform.position.z);
+            Debug.Log("ChangeAreaR");
         }
         else if (objectName != null)
         {
