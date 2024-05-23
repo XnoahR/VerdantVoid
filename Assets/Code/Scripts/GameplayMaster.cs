@@ -14,6 +14,9 @@ public class GameplayMaster : MonoBehaviour
         Pause
     }
 
+    //Current Chapter
+    public static int currentChapter = 0;   
+
     //Current State
     public static GameState currentGameState;
     private GameState previousGameState;

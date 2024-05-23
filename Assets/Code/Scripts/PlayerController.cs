@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Animation")]
     public Animator animator;
     public bool isWalk;
+    public RuntimeAnimatorController[] animatorControllers;
 
     // Start is called before the first frame update
     private void Awake()
@@ -47,11 +48,26 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
 
-    
-        animationCheck();
+        AnimatorCheck();
+        //add chapter 
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
+            GameplayMaster.currentChapter = 0;
+            Debug.Log(GameplayMaster.currentChapter);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            GameplayMaster.currentChapter = 1;
+            Debug.Log(GameplayMaster.currentChapter);
+        }
+        
+        AnimationCheck();
     }
 
-    private void animationCheck()
+    private void AnimatorCheck(){
+        int currentChapter = GameplayMaster.currentChapter;
+        animator.runtimeAnimatorController = currentChapter == 0 ? animatorControllers[0] : animatorControllers[1];
+    }
+
+    private void AnimationCheck()
     {
         if (isWalk)
         {
