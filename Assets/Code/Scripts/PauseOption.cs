@@ -29,5 +29,6 @@ public class PauseOption : MonoBehaviour
          GameplayMaster.RestoreState();
         Debug.Log(Time.timeScale);
        LoadingScreenManager.instance.SwitchtoScene("MainMenu");
+       LoadingScreenManager.instance.isMainMenu = true;
     }
 }
