@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         //SceneManager.LoadScene("GameScene");
-        LoadingScreenManager.instance.SwitchtoScene("Chapter1_Living Room");
+        LoadingScreenManager.instance.SwitchtoScene("Chapter1_Bedroom");
     }
 
     // onclick event for exit button

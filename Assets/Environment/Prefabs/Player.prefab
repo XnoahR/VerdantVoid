@@ -114,6 +114,9 @@ MonoBehaviour:
   facingRight: 1
   animator: {fileID: 0}
   isWalk: 0
+  animatorControllers:
+  - {fileID: 9100000, guid: 5c6c62ec022cfe643a70ea48b99eaf14, type: 2}
+  - {fileID: 9100000, guid: 35d05fdea38db244f972930ba7777281, type: 2}
 --- !u!1 &3220902154906338824
 GameObject:
   m_ObjectHideFlags: 0
