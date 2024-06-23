@@ -15,7 +15,9 @@ MonoBehaviour:
   objectName: X
   objectDescription: 
   interactions:
+  - speakerName: father
+    paragraphs: Sigma!
   - speakerName: Player
-    paragraphs: "BATA LIMA DITATA\n RATA LOREM IPSUM"
-  - speakerName: Dad
-    paragraphs: jhsebfkjhas
+    paragraphs: matamu sigma
+  - speakerName: father
+    paragraphs: yahaha

@@ -51,10 +51,13 @@ public class ChatBubble : MonoBehaviour
         textMeshPro.text = interaction.paragraphs;
         textMeshPro.ForceMeshUpdate();
 
+        // Find the speaker by name
+        Transform speakerTransform = FindSpeakerTransform(interaction.speakerName);
+        
         // Set the position of the chat bubble
-        if (interaction.speakerName != "Player")
+        if (speakerTransform != null)
         {
-            transform.position = transform.parent.position;
+            transform.position = speakerTransform.position;
         }
         else
         {
@@ -95,6 +98,16 @@ public class ChatBubble : MonoBehaviour
             yield return new WaitForSeconds(0.025f);
         }
         isTyping = false;
+    }
+
+    private Transform FindSpeakerTransform(string speakerName)
+    {
+        GameObject speaker = GameObject.Find(speakerName);
+        if (speaker != null)
+        {
+            return speaker.transform;
+        }
+        return null;
     }
 
     private Vector3 ClampToCameraView(Vector3 position, Vector2 size)

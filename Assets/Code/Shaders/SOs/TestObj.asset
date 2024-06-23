@@ -15,21 +15,21 @@ MonoBehaviour:
   objectName: Uniga
   objectDescription: 
   interactions:
-  - speakerName: Obj
+  - speakerName: box
     paragraphs: Ayo ke zona dulu bang
   - speakerName: Player
     paragraphs: 'Oke, ini mau keatas nih.
 
       Tenang aja, tenang aja'
-  - speakerName: Obj
+  - speakerName: box
     paragraphs: ...
-  - speakerName: Obj
+  - speakerName: box
     paragraphs: ITU DIKANANMU DIKANANMU!
   - speakerName: Player
     paragraphs: MANA MANA?!
   - speakerName: Player
     paragraphs: Okay tenang ini mau fokus ini
-  - speakerName: Obj
+  - speakerName: box
     paragraphs: Bodoh kali kau lah....
   - speakerName: Player
     paragraphs: Apa nih...

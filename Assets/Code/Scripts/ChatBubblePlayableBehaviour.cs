@@ -10,8 +10,8 @@ public class ChatBubblePlayableBehaviour : PlayableBehaviour
     {
         if (interactionObject == null) return;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        ChatBubble chatBubble = player.GetComponentInChildren<ChatBubble>();
+        GameObject chatBubbleParent = GameObject.Find("ChatBubbleParent"); // Ensure you have a parent object
+        ChatBubble chatBubble = chatBubbleParent.GetComponentInChildren<ChatBubble>();
 
         if (chatBubble != null)
         {
