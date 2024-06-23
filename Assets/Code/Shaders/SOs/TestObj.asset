@@ -18,7 +18,9 @@ MonoBehaviour:
   - speakerName: Obj
     paragraphs: Ayo ke zona dulu bang
   - speakerName: Player
-    paragraphs: Oke, ini mau keatas nih. Tenang aja, tenang aja
+    paragraphs: 'Oke, ini mau keatas nih.
+
+      Tenang aja, tenang aja'
   - speakerName: Obj
     paragraphs: ...
   - speakerName: Obj

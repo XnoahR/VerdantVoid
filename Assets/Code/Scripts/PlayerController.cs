@@ -34,6 +34,21 @@ public class PlayerController : MonoBehaviour
         PLAYER_SPEED = WALK_SPEED;
     }
 
+    void EnableControl()
+    {
+        canMove = true;
+    }
+
+    void DisableControl()
+    {
+        canMove = false;
+    }
+
+    public void setStateCutscene()
+    {
+        GameplayMaster.currentGameState = GameplayMaster.GameState.Cutscene;
+    }
+
     void Update()
     {
         if (GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay)
@@ -97,7 +112,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayerMovement()
+    public void PlayerMovement()
     {
         // Debug.Log("Player Movement");
         float horizontalMove = Input.GetAxis("Horizontal");
@@ -115,9 +130,10 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontalMove * PLAYER_SPEED, rb.velocity.y);
     }
 
-    void TurnPlayer()
+    public void TurnPlayer()
     {
         facingRight = !facingRight;
+        Debug.Log("Turn Player");
         Vector3 playerScale = transform.localScale;
         playerScale.x *= -1;
         transform.localScale = playerScale;

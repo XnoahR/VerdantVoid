@@ -92,6 +92,11 @@ public class GameplayMaster : MonoBehaviour
         }
     }
 
+    public void setStateCutscene()
+    {
+        currentGameState = GameState.Cutscene;
+    }
+
     void CutsceneTime()
     {
         //    currentGameState = GameState.Cutscene;
@@ -102,7 +107,12 @@ public class GameplayMaster : MonoBehaviour
 
     void GameplayTime()
     {
-       PauseScreen.SetActive(false);
+        //check if null
+        if (PauseScreen == null)
+        {
+           return;
+        }
+        else PauseScreen.SetActive(false);
         // currentGameState = GameState.Gameplay;
         // Play gameplay
         vcam.Follow = player.transform;
@@ -113,7 +123,7 @@ public class GameplayMaster : MonoBehaviour
     {
         // currentGameState = GameState.Interacting;
         // Play interacting
-        Debug.Log("Interacting");
+       
     }
 
     void PauseTime()
