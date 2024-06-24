@@ -9,6 +9,8 @@ public class ChatBubbleTrack : TrackAsset
 {
     public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
     {
+        Debug.Log("Creating ChatBubbleTrack");
         return ScriptPlayable<ChatBubblePlayableBehaviour>.Create(graph, inputCount);
+        
     }
 }

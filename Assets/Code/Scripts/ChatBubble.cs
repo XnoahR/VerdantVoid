@@ -14,6 +14,9 @@ public class ChatBubble : MonoBehaviour
     private GameObject chatBubbleText;
     private Camera mainCamera;
 
+    public delegate void InteractionComplete();
+    public event InteractionComplete OnInteractionComplete;
+
     private void Awake()
     {
         chatBubbleBackground = transform.Find("Background").gameObject;
@@ -26,8 +29,8 @@ public class ChatBubble : MonoBehaviour
 
     public void Setup(List<InteractionObject.Interaction> interactions)
     {
-        chatBubbleBackground.gameObject.SetActive(true);
-        chatBubbleText.gameObject.SetActive(true);
+        chatBubbleBackground.SetActive(true);
+        chatBubbleText.SetActive(true);
         StartCoroutine(ChatSequence(interactions));
     }
 
@@ -35,12 +38,14 @@ public class ChatBubble : MonoBehaviour
     {
         foreach (InteractionObject.Interaction interaction in interactions)
         {
-            StartCoroutine(Chat(interaction));
-            yield return new WaitForSeconds(1f);
-            yield return new WaitUntil(() => !isTyping && Input.GetKeyDown(KeyCode.Space));
+            yield return StartCoroutine(Chat(interaction));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
         chatBubbleBackground.gameObject.SetActive(false);
         chatBubbleText.gameObject.SetActive(false);
+
+        OnInteractionComplete?.Invoke();
+        if(GameplayMaster.currentGameState == GameplayMaster.GameState.Interacting)
         GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
         // Update game state or any other necessary logic
     }

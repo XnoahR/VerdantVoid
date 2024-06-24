@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TestInteract : Item
 {
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         INTERACT_DISTANCE = 2f;
@@ -21,5 +22,12 @@ public class TestInteract : Item
     {
         Debug.Log($"Chatting with {interaction.objectName}");
         chatBubble.Setup(interaction.interactions);
+        chatBubble.OnInteractionComplete += OnChatComplete;
+    }
+
+    private void OnChatComplete()
+    {
+        chatBubble.OnInteractionComplete -= OnChatComplete;
+        GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
     }
 }

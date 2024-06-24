@@ -58,23 +58,7 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 206447436c9262c48a43244bbef89d3b, type: 2}
---- !u!114 &-4168397027246282924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 3.5833333333333335
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 206447436c9262c48a43244bbef89d3b, type: 2}
---- !u!114 &-3910091225972373223
+--- !u!114 &-4420777378003374509
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,12 +80,12 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 6.7
+    m_Start: 1.8666666666666656
     m_ClipIn: 0
-    m_Asset: {fileID: 2251156585000932150}
-    m_Duration: 5
+    m_Asset: {fileID: 1526245196456985688}
+    m_Duration: 1.7500000000000009
     m_TimeScale: 1
-    m_ParentTrack: {fileID: -3910091225972373223}
+    m_ParentTrack: {fileID: -4420777378003374509}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -166,6 +150,22 @@ MonoBehaviour:
     m_DisplayName: ChatBubblePlayableAsset
   m_Markers:
     m_Objects: []
+--- !u!114 &-4168397027246282924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 3.5833333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 206447436c9262c48a43244bbef89d3b, type: 2}
 --- !u!114 &-2269914237741795684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: 848961049700973815}
-  - {fileID: -3910091225972373223}
+  - {fileID: -4420777378003374509}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -245,7 +245,7 @@ MonoBehaviour:
     m_Start: 0.31666666666666665
     m_ClipIn: 0
     m_Asset: {fileID: 1368365203637131987}
-    m_Duration: 5.683333333333334
+    m_Duration: 4.416666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: 848961049700973815}
     m_EaseInDuration: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &2251156585000932150
+--- !u!114 &1526245196456985688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Name: ChatBubblePlayableAsset
   m_EditorClassIdentifier: 
   interactionObject: {fileID: 11400000, guid: f76d66c311c921444b0e6865fd045029, type: 2}
+  timelineTimeToPause: 0
 --- !u!114 &6445334262921498046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 0.1
+  m_Time: 0.31666666666666665
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 76a45bda7637f0646b850e2aa8461fa3, type: 2}
