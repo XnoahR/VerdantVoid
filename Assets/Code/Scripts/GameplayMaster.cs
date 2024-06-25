@@ -15,7 +15,7 @@ public class GameplayMaster : MonoBehaviour
     }
 
     //Current Chapter
-    public static int currentChapter = 0;   
+    public static int currentChapter = 1;   
 
     //Current State
     public static GameState currentGameState;
@@ -75,6 +75,7 @@ public class GameplayMaster : MonoBehaviour
 
     void checkState()
     {
+
         switch (currentGameState)
         {
             case GameState.Cutscene:
@@ -92,9 +93,14 @@ public class GameplayMaster : MonoBehaviour
         }
     }
 
-    public void setStateCutscene()
+    public void SetStateCutscene()
     {
         currentGameState = GameState.Cutscene;
+    }
+
+    public void SetStateGameplay()
+    {
+        currentGameState = GameState.Gameplay;
     }
 
     void CutsceneTime()

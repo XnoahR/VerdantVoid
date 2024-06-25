@@ -45,8 +45,8 @@ public class ChatBubble : MonoBehaviour
         chatBubbleText.gameObject.SetActive(false);
 
         OnInteractionComplete?.Invoke();
-        if(GameplayMaster.currentGameState == GameplayMaster.GameState.Interacting)
-        GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
+        if (GameplayMaster.currentGameState == GameplayMaster.GameState.Interacting)
+            GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
         // Update game state or any other necessary logic
     }
 
@@ -58,7 +58,7 @@ public class ChatBubble : MonoBehaviour
 
         // Find the speaker by name
         Transform speakerTransform = FindSpeakerTransform(interaction.speakerName);
-        
+
         // Set the position of the chat bubble
         if (speakerTransform != null)
         {

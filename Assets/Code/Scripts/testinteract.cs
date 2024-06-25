@@ -6,9 +6,9 @@ public class TestInteract : Item
 {
     
 
-    void Start()
+    void Awake()
     {
-        INTERACT_DISTANCE = 2f;
+        Debug.Log("TestInteract Awake");
     }
 
     public override void Interact()

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         //SceneManager.LoadScene("GameScene");
+        PlayerPrefs.DeleteAll();
         LoadingScreenManager.instance.SwitchtoScene("Opening");
     }
 

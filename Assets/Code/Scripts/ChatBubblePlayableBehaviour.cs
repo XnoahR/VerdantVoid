@@ -41,7 +41,7 @@ public class ChatBubblePlayableBehaviour : PlayableBehaviour
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        Debug.Log("Processing frame");
+        // Debug.Log("Processing frame");
         if (isChat)
         {
             if (!interactionComplete)
