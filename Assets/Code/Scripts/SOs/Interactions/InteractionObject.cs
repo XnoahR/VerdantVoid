@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Interaction", menuName = "Interaction", order = 0)]
+[CreateAssetMenu(fileName = "New Interaction", menuName = "ScriptableObjects/Interaction")]
 public class InteractionObject : ScriptableObject
 {
     public string objectName;
@@ -14,7 +14,7 @@ public class InteractionObject : ScriptableObject
 
         [TextArea(5, 10)]
         public string paragraphs;
-    }
+    } 
 
     public List<Interaction> interactions = new List<Interaction>();
 }

@@ -41,7 +41,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     public bool PlayerNearby()
     {
         bool isPlayerNearby =
-            Mathf.Abs(playerTransform.position.x - transform.position.x) <= INTERACT_DISTANCE;
+            Mathf.Abs(playerTransform.position.x - transform.position.x) <= INTERACT_DISTANCE && GameplayMaster.currentGameState == GameplayMaster.GameState.Gameplay;
 
         if (isPlayerNearby && !wasPlayerNearby)
         {

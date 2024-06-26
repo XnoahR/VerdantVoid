@@ -148,14 +148,18 @@ public class GameplayMaster : MonoBehaviour
         Debug.Log("Pause");
     }
 
-
-    public void SetStage(int stage)
+    public static bool IsObjectiveFulfilled(RequiredItems requiredItems)
     {
-        currentStage = stage;
+        foreach (string item in requiredItems.items)
+        {
+            if (!inventory.Contains(item)) return false;
+        }
+        return true;
     }
 
-    public void SetChapter(int chapter)
-    {
+
+    public void SetProgress(int chapter, int stage){
         currentChapter = chapter;
+        currentStage = stage;
     }
 }
