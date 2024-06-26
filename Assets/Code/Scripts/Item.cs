@@ -17,8 +17,10 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
 
     private void Start()
     {
+        Debug.Log("Item Start");
         chatBubbleGO = transform.Find("ChatBubble").gameObject;
         playerTransform = GameplayMaster.player.transform;
+        Debug.Log("anjay" + playerTransform);
         interactSign = transform.Find("InteractSign").GetComponent<SpriteRenderer>();
         chatBubble = chatBubbleGO.GetComponent<ChatBubble>();
     }
@@ -58,6 +60,7 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
 
     private void Update()
     {
+        // Debug.Log(playerTransform);
         PlayerNearby();
 
         if (

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182c10ae621a458419451a9367483b93, type: 3}
+  m_Name: Chapter1_Bedroom
+  m_EditorClassIdentifier: 
+  timelines:
+  - timelineKey: C1S1Br
+    playable: {fileID: 11400000, guid: f23be4d3251f8774592f4b9eb2f862fa, type: 2}
+    isPlayed: 1
+    isTrigger: 1
+    stage: 1
+  - timelineKey: C1S2Br
+    playable: {fileID: 0}
+    isPlayed: 0
+    isTrigger: 0
+    stage: 2

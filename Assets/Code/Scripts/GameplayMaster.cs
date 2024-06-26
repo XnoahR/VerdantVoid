@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameplayMaster : MonoBehaviour
@@ -15,7 +16,11 @@ public class GameplayMaster : MonoBehaviour
     }
 
     //Current Chapter
-    public static int currentChapter = 1;   
+
+    [SerializeField] public static int currentChapter = 1;
+    [SerializeField] public static int currentStage = 1;
+    [SerializeField] public static List<string> inventory = new List<string>();
+    
 
     //Current State
     public static GameState currentGameState;
@@ -31,12 +36,14 @@ public class GameplayMaster : MonoBehaviour
             .Find("Virtual Camera")
             .GetComponent<Cinemachine.CinemachineVirtualCamera>();
         player = GameObject.Find("Player");
+        Debug.Log("Player: " + player.name);
         //set enum to gameplay
         currentGameState = GameState.Gameplay;
-        
+
     }
 
-    private void Start() {
+    private void Start()
+    {
         PauseScreen = GameObject.Find("PauseScreen");
         PauseScreen.SetActive(false);
     }
@@ -55,7 +62,7 @@ public class GameplayMaster : MonoBehaviour
             //not interacting
             if (currentGameState != GameState.Interacting)
             {
-            currentGameState = GameState.Pause;
+                currentGameState = GameState.Pause;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && currentGameState == GameState.Pause)
@@ -108,7 +115,7 @@ public class GameplayMaster : MonoBehaviour
         //    currentGameState = GameState.Cutscene;
         // Play cutscene
         vcam.Follow = null;
-        Debug.Log("Cutscene");
+        // Debug.Log("Cutscene");
     }
 
     void GameplayTime()
@@ -116,7 +123,7 @@ public class GameplayMaster : MonoBehaviour
         //check if null
         if (PauseScreen == null)
         {
-           return;
+            return;
         }
         else PauseScreen.SetActive(false);
         // currentGameState = GameState.Gameplay;
@@ -129,7 +136,7 @@ public class GameplayMaster : MonoBehaviour
     {
         // currentGameState = GameState.Interacting;
         // Play interacting
-       
+
     }
 
     void PauseTime()
@@ -139,5 +146,16 @@ public class GameplayMaster : MonoBehaviour
         currentGameState = GameState.Pause;
         PauseScreen.SetActive(true);
         Debug.Log("Pause");
+    }
+
+
+    public void SetStage(int stage)
+    {
+        currentStage = stage;
+    }
+
+    public void SetChapter(int chapter)
+    {
+        currentChapter = chapter;
     }
 }

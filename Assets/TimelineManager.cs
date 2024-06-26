@@ -6,23 +6,40 @@ public class TimelineManager : MonoBehaviour
     private PlayableDirector playableDirector; // Reference to the PlayableDirector
     private bool isPlayed;
     private GameObject cinematicScreen;
+    public TimelineObject timelineObject;
+    private TimelineObject.TimelineData currentTimelineObject;
 
     void Start()
     {
         cinematicScreen = GameObject.Find("CinematicScreen");
-        cinematicScreen.SetActive(false);
+        // cinematicScreen.SetActive(false);
         // Automatically get the PlayableDirector component attached to the same GameObject
         playableDirector = GetComponent<PlayableDirector>();
+        foreach(TimelineObject.TimelineData timeline in timelineObject.timelines)
+        {
+            if(timeline.stage == GameplayMaster.currentStage)
+            {
+                currentTimelineObject = timeline;
+                break;
+            }
+        }
 
         // Load the persistent flag from PlayerPrefs
-        isPlayed = PlayerPrefs.GetInt("TimelinePlayed", 0) == 1;
+        playableDirector.playableAsset = currentTimelineObject.playable;
+        isPlayed = PlayerPrefs.GetInt(currentTimelineObject.timelineKey, 0) == 1;
         Debug.Log("Timeline played: " + isPlayed);
 
-        // If the timeline has already been played, do not play it again
-        if (!isPlayed && playableDirector != null)
+    }
+
+    void Update()
+    {
+        // If the timeline is not played and the space key is pressed, play the timeline
+        if (!isPlayed && Input.GetKeyDown(KeyCode.T))
         {
-            PlayTimeline();
+            currentTimelineObject.isTrigger = true; 
         }
+
+        CheckTrigger();
     }
 
     private void PlayTimeline()
@@ -33,7 +50,7 @@ public class TimelineManager : MonoBehaviour
             // Set the flag to true
             isPlayed = true;
             // Save the flag state to PlayerPrefs
-            PlayerPrefs.SetInt("TimelinePlayed", 1);
+            PlayerPrefs.SetInt(currentTimelineObject.timelineKey, 1);
             PlayerPrefs.Save();
         }
     }
@@ -42,5 +59,13 @@ public class TimelineManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("TimelinePlayed", 0);
         PlayerPrefs.Save();
+    }
+
+    public void CheckTrigger()
+    {
+        if(!isPlayed && playableDirector != null && currentTimelineObject.isTrigger)
+        {
+            PlayTimeline();
+        }
     }
 }
