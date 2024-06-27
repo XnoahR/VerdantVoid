@@ -7,6 +7,6 @@ using UnityEngine.SceneManagement;
 public class Opening : MonoBehaviour
 {
      private void OnEnable() {
-        LoadingScreenManager.instance.SwitchtoScene("Chapter1_Bedroom");
+        LoadingScreenManager.instance.SwitchtoScene("C1S1_Bedroom");
     }
 }

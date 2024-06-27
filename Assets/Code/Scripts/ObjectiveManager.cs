@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager instance;
 
-    public List<RequiredItems> chapterObjectives; // List of objectives per chapter
-    private int currentChapter;
-    private int currentStage;
+    public List<ObjectiveObject> chapterObjectives = new List<ObjectiveObject>();
 
     private void Awake()
     {
@@ -24,39 +23,52 @@ public class ObjectiveManager : MonoBehaviour
 
     public void SetProgress(int chapter, int stage)
     {
-        currentChapter = chapter;
-        currentStage = stage;
         GameplayMaster.currentChapter = chapter;
         GameplayMaster.currentStage = stage;
     }
 
-    public void CheckObjectives()
+    public bool IsObjectiveFulfilled(ObjectiveObject objective)
     {
-        if (IsObjectiveFulfilled(chapterObjectives[currentChapter]))
+        if (objective.requiredItem)
         {
-            AdvanceToNextStage();
-        }
-    }
-
-    private bool IsObjectiveFulfilled(RequiredItems requiredItems)
-    {
-        foreach (string item in requiredItems.items)
-        {
-            if (!GameplayMaster.inventory.Contains(item)) return false;
+            foreach (string item in objective.requiredItems.items)
+            {
+                if (!GameplayMaster.inventory.Contains(item)) return false;
+            }
         }
         return true;
     }
 
+    public void CheckObjectives()
+    {
+        foreach (var objective in chapterObjectives)
+        {
+            if (objective.Chapter == GameplayMaster.currentChapter && objective.Stage == GameplayMaster.currentStage)
+            {
+                if (IsObjectiveFulfilled(objective))
+                {
+                    AdvanceToNextStage();
+                    break;
+                }
+            }
+        }
+    }
+
     private void AdvanceToNextStage()
     {
-        // Logic to advance to the next stage or chapter
-        currentStage++;
-        if (currentStage > chapterObjectives.Count - 1)
+        ObjectiveObject currentObjective = chapterObjectives.Find(obj => obj.Chapter == GameplayMaster.currentChapter && obj.Stage == GameplayMaster.currentStage);
+        GameplayMaster.currentStage++;
+        var maxStages = chapterObjectives.FindAll(obj => obj.Chapter == GameplayMaster.currentChapter).Count;
+
+        if (GameplayMaster.currentStage > maxStages)
         {
-            currentChapter++;
-            currentStage = 0;
+            GameplayMaster.currentChapter++;
+            GameplayMaster.currentStage = 1;
         }
-        SetProgress(currentChapter, currentStage);
-        // Trigger any additional logic for progressing in the game
+
+        SetProgress(GameplayMaster.currentChapter, GameplayMaster.currentStage);
+        SceneManager.LoadScene($"C{GameplayMaster.currentChapter}S{GameplayMaster.currentStage}_{currentObjective.nextScene}");
     }
+
+    
 }

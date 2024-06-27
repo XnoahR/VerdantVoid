@@ -68,7 +68,7 @@ public class SpecificArea : MonoBehaviour, IInteractable
         LevelLoader.objectName = purposedObjectName;
         GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
         // SceneManager.LoadScene(sceneName);
-        var scene = $"Chapter{GameplayMaster.currentChapter}_{sceneName}";
+        var scene = $"C{GameplayMaster.currentChapter}S{GameplayMaster.currentStage}_{sceneName}";
         Debug.Log(scene);
         LoadingScreenManager.instance.SwitchtoScene(scene);
     }

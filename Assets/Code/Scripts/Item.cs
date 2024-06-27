@@ -15,17 +15,21 @@ public abstract class Item : MonoBehaviour, IInteractable, IChatable
     protected float INTERACT_DISTANCE;
     public InteractionObject interaction;
 
-    private void Start()
+    protected virtual void Start()
     {
-        Debug.Log("Item Start");
+         Debug.Log("Item Start");
         chatBubbleGO = transform.Find("ChatBubble").gameObject;
         playerTransform = GameplayMaster.player.transform;
         Debug.Log("anjay" + playerTransform);
         interactSign = transform.Find("InteractSign").GetComponent<SpriteRenderer>();
         chatBubble = chatBubbleGO.GetComponent<ChatBubble>();
+
+        AdditionalCondition();
     }
 
-    
+    protected virtual void AdditionalCondition(){
+       Debug.Log("Item Additional Condition");
+    }
 
     public virtual void Interact()
     {

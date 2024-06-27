@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class ObjectiveInteraction : Item
 {
-
-    public RequiredItems requiredItems;
+    public ObjectiveObject objective;
+    public InteractionObject objectiveChat;
 
     void Awake()
     {
         Debug.Log("TestInteract Awake");
     }
 
+    
     public override void Interact()
     {
-
-        if (GameplayMaster.IsObjectiveFulfilled(requiredItems))
+        if (ObjectiveManager.instance.IsObjectiveFulfilled(objective))
         {
-            Debug.Log("Objective Fulfilled");
+            GameplayMaster.currentGameState = GameplayMaster.GameState.Interacting;
+            ObjectiveChat();
         }
         else
         {
@@ -26,7 +27,6 @@ public class ObjectiveInteraction : Item
             Chat();
             Debug.Log("You need to find the required item first");
         }
-
     }
 
     public override void Chat()
@@ -36,9 +36,21 @@ public class ObjectiveInteraction : Item
         chatBubble.OnInteractionComplete += OnChatComplete;
     }
 
+    public void ObjectiveChat(){
+        Debug.Log($"Chatting with {interaction.objectName}");
+        chatBubble.Setup(objectiveChat.interactions);
+        chatBubble.OnInteractionComplete += OnChatObjectiveComplete;
+
+    }
+
     private void OnChatComplete()
     {
         chatBubble.OnInteractionComplete -= OnChatComplete;
         GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
+    }
+
+    private void OnChatObjectiveComplete(){
+        chatBubble.OnInteractionComplete -= OnChatObjectiveComplete;
+        ObjectiveManager.instance.CheckObjectives();  
     }
 }

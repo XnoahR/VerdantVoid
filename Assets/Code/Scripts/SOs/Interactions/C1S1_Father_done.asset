@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bd2bec770ae06449cd057b19f2e3e8, type: 3}
+  m_Name: C1S1_Father_done
+  m_EditorClassIdentifier: 
+  objectName: C1S1_Father_Done
+  objectDescription: Objective Done for C1S1
+  interactions:
+  - speakerName: father
+    paragraphs: 'Apakah sudah menemukan alat-alat
+
+      yang diperlukan?'
+  - speakerName: Player
+    paragraphs: Apakah ini sudah cukup yah?
+  - speakerName: father
+    paragraphs: ...
+  - speakerName: father
+    paragraphs: Sudah.
+  - speakerName: father
+    paragraphs: 'Baiklah, akan ayah jelaskan
+
+      mengenai sesuatu yang penting.'

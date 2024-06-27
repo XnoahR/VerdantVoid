@@ -26,7 +26,7 @@ public class ChangeArea : MonoBehaviour
         {
             LevelLoader.changeAreaPosition = purposedPosition;
             // SceneManager.LoadScene(sceneName);
-            var scene = $"Chapter{GameplayMaster.currentChapter}_{sceneName}";
+            var scene = $"C{GameplayMaster.currentChapter}S{GameplayMaster.currentStage}_{sceneName}";
             LoadingScreenManager.instance.SwitchtoScene(scene);
             Debug.Log("moving to " + sceneName + " " + purposedPosition);
         }

@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PickableItem : Item
 {
-    
+    public bool isPickedUp = false;    
+    private string itemKey;
 
-    void Awake()
+    protected override void Start()
     {
-        Debug.Log("TestInteract Awake");
+        base.Start();
+        itemKey = interaction.name;
+        isPickedUp = PlayerPrefs.GetInt(itemKey, 0) == 1;
+        Debug.Log($"Item {itemKey} isPickedUp: {isPickedUp}");
+        gameObject.SetActive(!isPickedUp);
     }
 
     public override void Interact()
@@ -28,9 +33,12 @@ public class PickableItem : Item
     private void OnChatComplete()
     {
         chatBubble.OnInteractionComplete -= OnChatComplete;
-        transform.gameObject.SetActive(false);
         GameplayMaster.inventory.Add(interaction.objectName);
         Debug.Log("Inventory: " + string.Join(", ", GameplayMaster.inventory));
+        isPickedUp = true;
+        PlayerPrefs.SetInt(itemKey, 1); // Store the state in PlayerPrefs
+        PlayerPrefs.Save(); 
+        transform.gameObject.SetActive(false);
         //List Inventory
         foreach (string item in GameplayMaster.inventory){
             Debug.Log(item);

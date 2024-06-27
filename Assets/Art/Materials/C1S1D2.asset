@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bd2bec770ae06449cd057b19f2e3e8, type: 3}
+  m_Name: C1S1D2
+  m_EditorClassIdentifier: 
+  objectName: Dialogue2
+  objectDescription: Obrolan ayah dan Corra
+  interactions:
+  - speakerName: Player
+    paragraphs: "Apakah ayah sudah merasa \nlebih baik?"
+  - speakerName: father
+    paragraphs: Lebih baik dari sebelumnya
+  - speakerName: father
+    paragraphs: 'Hari ini sudah 6 bulan
+
+      semenjak bencana ini datang'
+  - speakerName: father
+    paragraphs: 'Dan masih belum ada
+
+      pertanda akan reda.'
+  - speakerName: Player
+    paragraphs: 'Ya, aku juga tidak bisa keluar terlalu lama
+
+      karena asap membuatku
+      sakit.'
+  - speakerName: father
+    paragraphs: "Corra, sumber bencana ini \nberasal dari hutan, bukan?"
+  - speakerName: Player
+    paragraphs: 'Benar, Ayah. Terakhir kali aku mencoba
+
+      mendekati hutan, asapnya
+      sangat mengerikan.'
+  - speakerName: Player
+    paragraphs: 'Jadi, aku pikir memang benar ini terjadi
+
+      karena ada yang
+      mengeksploitasi hutan.'
+  - speakerName: father
+    paragraphs: ....
+  - speakerName: father
+    paragraphs: Aku punya permintaan, Corra.
+  - speakerName: Player
+    paragraphs: Apa itu, Ayah?
+  - speakerName: father
+    paragraphs: 'Sebelum itu, bisakah kamu membantuku
+
+      mencari beberapa barang?'
+  - speakerName: father
+    paragraphs: 'Aku membutuhkan Gelas Silinder,
+
+      Pot, dan tanaman spesial.'
+  - speakerName: Player
+    paragraphs: tanaman spesial?
+  - speakerName: father
+    paragraphs: 'Seingatku, terdapat tanaman bonsai
+
+      dekat ayunan dibelakang
+      rumah.'
+  - speakerName: father
+    paragraphs: 'Setelah mengumpulkan semuanya,
+
+      Kau bisa membawakannya kepadaku'
+  - speakerName: Player
+    paragraphs: Baiklah.
