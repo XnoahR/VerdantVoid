@@ -16,6 +16,7 @@ public class GameplayMaster : MonoBehaviour
     [SerializeField] public static int currentChapter = 1;
     [SerializeField] public static int currentStage = 1;
     [SerializeField] public static List<string> inventory = new List<string>();
+    public static bool isDemo = false;
 
     public static GameState currentGameState;
     private GameState previousGameState;
@@ -26,10 +27,10 @@ public class GameplayMaster : MonoBehaviour
 
     private void Awake()
     {
-        vcam = GameObject.Find("Virtual Camera").GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        if(!isDemo) vcam = GameObject.Find("Virtual Camera").GetComponent<Cinemachine.CinemachineVirtualCamera>();
         if (vcam == null) Debug.Log("vcam is null");
-        player = GameObject.Find("Player");
-        Debug.Log("Player: " + player.name);
+        if(!isDemo) player = GameObject.Find("Player");
+        // Debug.Log("Player: " + player.name);
 
         currentGameState = GameState.Gameplay;
     }

@@ -22,11 +22,15 @@ public class PlayerController : MonoBehaviour
     public bool isWalk;
     public RuntimeAnimatorController[] animatorControllers;
 
-    // Start is called before the first frame update
+    [Header("Sound Effects")]
+    public AudioSource audioSource;
+    public AudioClip runSFX;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetChild(0).GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         AnimatorCheck();
-        //add chapter 
+        
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             GameplayMaster.currentChapter = 0;
             Debug.Log(GameplayMaster.currentChapter);
@@ -96,17 +100,29 @@ public class PlayerController : MonoBehaviour
         if (isSprint)
         {
             animator.SetBool("isSprint", true);
+            if (!audioSource.isPlaying && isWalk)
+            {
+                audioSource.clip = runSFX;
+                audioSource.Play();
+            }
+            //if not wakling, stop the sound
+            if (!isWalk)
+            {
+                audioSource.Stop();
+            }
         }
         else
         {
             animator.SetBool("isSprint", false);
+            if (audioSource.isPlaying && audioSource.clip == runSFX || !isWalk)
+            {
+                audioSource.Stop();
+            }
         }
     }
 
     void FixedUpdate()
     {
-        // Debug.Log(canMove);
-
         if (canMove)
         {
             PlayerMovement();
@@ -115,7 +131,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMovement()
     {
-        // Debug.Log("Player Movement");
         float horizontalMove = Input.GetAxis("Horizontal");
         if (horizontalMove > 0 && !facingRight)
         {
@@ -125,8 +140,8 @@ public class PlayerController : MonoBehaviour
         {
             TurnPlayer();
         }
-        isWalk = horizontalMove != 0 ? true : false;
-        isSprint = Input.GetKey(KeyCode.LeftShift) ? true : false;
+        isWalk = horizontalMove != 0;
+        isSprint = Input.GetKey(KeyCode.LeftShift);
         PLAYER_SPEED = isSprint ? SPRINT_SPEED : WALK_SPEED;
         rb.velocity = new Vector2(horizontalMove * PLAYER_SPEED, rb.velocity.y);
     }
@@ -134,7 +149,6 @@ public class PlayerController : MonoBehaviour
     public void TurnPlayer()
     {
         facingRight = !facingRight;
-        Debug.Log("Turn Player");
         Vector3 playerScale = transform.localScale;
         playerScale.x *= -1;
         transform.localScale = playerScale;

@@ -57,6 +57,7 @@ public class LoadingScreenManager : MonoBehaviour
 
     private IEnumerator SwitchtoSceneRoutine(string sceneName)
     {
+        BacksoundManager.instance.StartCoroutine("FadeOut");
         // Start fade-in and wait for it to complete
         yield return StartCoroutine(FadeIn());
 
@@ -68,6 +69,7 @@ public class LoadingScreenManager : MonoBehaviour
 
         // Deactivate loading screen and start fade-out
         loadingScreen.SetActive(false);
+        BacksoundManager.instance.PlayMusic("General");
         yield return StartCoroutine(FadeOut());
 
         // Reset the flag since the scene load operation has completed
@@ -75,6 +77,7 @@ public class LoadingScreenManager : MonoBehaviour
     }
     IEnumerator SwitchtoSceneAsync(string sceneName)
     {
+        BacksoundManager.instance.StartCoroutine("FadeOut");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {
@@ -86,6 +89,7 @@ public class LoadingScreenManager : MonoBehaviour
         // }
         yield return new WaitForSeconds(1);
         loadingScreen.SetActive(false);
+        BacksoundManager.instance.StartCoroutine("FadeIn");
         isLoading = false; // Reset the flag since the scene load operation has completed
     }
 

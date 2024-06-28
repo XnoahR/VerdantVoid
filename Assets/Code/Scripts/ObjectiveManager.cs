@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager instance;
@@ -67,8 +69,9 @@ public class ObjectiveManager : MonoBehaviour
         }
 
         SetProgress(GameplayMaster.currentChapter, GameplayMaster.currentStage);
+        GameplayMaster.isDemo = true;
         LoadingScreenManager.instance.SwitchtoScene("DemoEnding");
     }
 
-    
+
 }

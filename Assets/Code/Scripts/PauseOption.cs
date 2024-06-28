@@ -36,7 +36,9 @@ public class PauseOption : MonoBehaviour
         //reset the game state
         GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
         //reset the player position
+        GameplayMaster.isDemo = false;
        LoadingScreenManager.instance.SwitchtoScene("MainMenu");
        LoadingScreenManager.instance.isMainMenu = true;
+         BacksoundManager.instance.PlayMusic("MM");
     }
 }
