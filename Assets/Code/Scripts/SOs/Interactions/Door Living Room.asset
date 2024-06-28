@@ -16,6 +16,6 @@ MonoBehaviour:
   objectDescription: 
   interactions:
   - speakerName: Player
-    paragraphs: Sebaiknya aku tidak keluar
+    paragraphs: Sebaiknya aku tidak keluar.
   - speakerName: Player
     paragraphs: "Ayah masih memerlukan \nbantuanku."

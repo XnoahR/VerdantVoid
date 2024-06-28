@@ -18,11 +18,11 @@ MonoBehaviour:
   - speakerName: Player
     paragraphs: "Apakah ayah sudah merasa \nlebih baik?"
   - speakerName: father
-    paragraphs: Lebih baik dari sebelumnya
+    paragraphs: Lebih baik dari sebelumnya.
   - speakerName: father
     paragraphs: 'Hari ini sudah 6 bulan
 
-      semenjak bencana ini datang'
+      semenjak bencana ini datang,'
   - speakerName: father
     paragraphs: 'Dan masih belum ada
 
@@ -59,15 +59,15 @@ MonoBehaviour:
 
       Pot, dan tanaman spesial.'
   - speakerName: Player
-    paragraphs: tanaman spesial?
+    paragraphs: Tanaman spesial?
   - speakerName: father
     paragraphs: 'Seingatku, terdapat tanaman bonsai
 
-      dekat ayunan dibelakang
+      dekat ayunan di belakang
       rumah.'
   - speakerName: father
     paragraphs: 'Setelah mengumpulkan semuanya,
 
-      Kau bisa membawakannya kepadaku'
+      kau bisa membawakannya kepadaku.'
   - speakerName: Player
     paragraphs: Baiklah.

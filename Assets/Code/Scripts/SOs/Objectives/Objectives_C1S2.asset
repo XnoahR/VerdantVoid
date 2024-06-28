@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Objectives_C1S2
   m_EditorClassIdentifier: 
   objectiveName: Mother of Nature
-  objectiveDescription: "Find the photo that \nfather mention"
+  objectiveDescription: Mencari foto yang dimaksud oleh ayah.
   requiredItem: 1
   requiredItems: {fileID: 11400000, guid: e50d6ec5206a2f448a087bfafe7d503c, type: 2}
+  nextScene: 
   Chapter: 1
   Stage: 2

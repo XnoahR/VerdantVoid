@@ -16,6 +16,6 @@ MonoBehaviour:
   objectDescription: Pickable Object for mission
   interactions:
   - speakerName: Player
-    paragraphs: Tanaman di pot itu mati
+    paragraphs: "Tanaman di pot itu sudah mati.\t"
   - speakerName: Player
-    paragraphs: "Aku bisa menggunakan \npotnya sih"
+    paragraphs: "Aku bisa menggunakan \npotnya sih..."

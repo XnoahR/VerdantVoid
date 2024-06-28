@@ -16,11 +16,11 @@ MonoBehaviour:
   objectDescription: Pickable Object for mission
   interactions:
   - speakerName: Player
-    paragraphs: "Aku tidak bisa menemukan \nGelas Silinder"
+    paragraphs: "Aku tidak bisa menemukan \nGelas Silinder..."
   - speakerName: Player
     paragraphs: Tunggu dulu...
   - speakerName: Player
-    paragraphs: Lampu ini sudah rusak
+    paragraphs: Lampu ini sudah .
   - speakerName: Player
     paragraphs: 'Mungkin aku bisa menggunakan
 
