@@ -28,6 +28,14 @@ public class PauseOption : MonoBehaviour
     {
          GameplayMaster.RestoreState();
         Debug.Log(Time.timeScale);
+        //reset the current chapter and stage
+        GameplayMaster.currentChapter = 1;
+        GameplayMaster.currentStage = 1;
+        //reset the inventory
+        GameplayMaster.inventory.Clear();
+        //reset the game state
+        GameplayMaster.currentGameState = GameplayMaster.GameState.Gameplay;
+        //reset the player position
        LoadingScreenManager.instance.SwitchtoScene("MainMenu");
        LoadingScreenManager.instance.isMainMenu = true;
     }

@@ -67,7 +67,7 @@ public class ObjectiveManager : MonoBehaviour
         }
 
         SetProgress(GameplayMaster.currentChapter, GameplayMaster.currentStage);
-        SceneManager.LoadScene($"C{GameplayMaster.currentChapter}S{GameplayMaster.currentStage}_{currentObjective.nextScene}");
+        LoadingScreenManager.instance.SwitchtoScene("DemoEnding");
     }
 
     

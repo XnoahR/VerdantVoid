@@ -79,7 +79,8 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatorCheck(){
         int currentChapter = GameplayMaster.currentChapter;
-        animator.runtimeAnimatorController = currentChapter == 0 ? animatorControllers[0] : animatorControllers[1];
+        int currentStage = GameplayMaster.currentStage;
+        animator.runtimeAnimatorController = currentChapter == 1 && currentStage == 1 ? animatorControllers[0] : animatorControllers[1];
     }
 
     private void AnimationCheck()

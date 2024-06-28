@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Story/Opening.unity
     guid: 6aac6974c92bb8d4b8c748b4a8787483
   - enabled: 1
+    path: Assets/Scenes/Story/DemoEnding.unity
+    guid: dff39ff4f6145db46aa19c05f94f981f
+  - enabled: 1
     path: Assets/Scenes/Area/Chapter 1/C1S1_Basement.unity
     guid: 0dcbf3a3000545d40a9582e45170292c
   - enabled: 1
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area/Chapter 1/C1S1_Bedroom.unity
     guid: bdb0509fb397afa46b672861ec9da59d
+  - enabled: 1
+    path: Assets/Scenes/Area/Chapter 1/C1S2_Bedroom.unity
+    guid: dec6944e95cf9b64f966aa82ca677da0
   m_configObjects: {}

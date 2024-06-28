@@ -660,7 +660,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0.35
-    m_DisplayName: Player_Idle
+    m_DisplayName: Player_Idle_no_bag
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 7c9a484e34682a7428c415a6d8104178, type: 2}
+  m_Clip: {fileID: 7400000, guid: 1eea0546f94c1d54cb4d5f9a7407bf5e, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1

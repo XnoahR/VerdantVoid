@@ -27,6 +27,7 @@ public class GameplayMaster : MonoBehaviour
     private void Awake()
     {
         vcam = GameObject.Find("Virtual Camera").GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        if (vcam == null) Debug.Log("vcam is null");
         player = GameObject.Find("Player");
         Debug.Log("Player: " + player.name);
 
