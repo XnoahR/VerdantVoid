@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Code.Scripts.Managers;
+
 
 public class TestInteract : Item
 {
