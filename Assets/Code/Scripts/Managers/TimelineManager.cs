@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 
+namespace Assets.Code.Scripts.Managers
+{
     public class TimelineManager : MonoBehaviour
     {
         private PlayableDirector playableDirector; // Reference to the PlayableDirector
@@ -70,3 +72,4 @@ using UnityEngine.Playables;
             }
         }
     }
+}

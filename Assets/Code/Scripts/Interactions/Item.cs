@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Code.Scripts.Managers;
+using Assets.Code.Scripts.ChatSystem;
 
 public abstract class Item : MonoBehaviour, IInteractable, IChatable
 {
