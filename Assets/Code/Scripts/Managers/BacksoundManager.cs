@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Code.Scripts.Managers
+namespace VerdantVoid.Code.Scripts.Managers
 {
     public class BacksoundManager : MonoBehaviour
     {

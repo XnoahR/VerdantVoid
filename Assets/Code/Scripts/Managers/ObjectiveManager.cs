@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-namespace Assets.Code.Scripts.Managers
+namespace VerdantVoid.Code.Scripts.Managers
 {
     public class ObjectiveManager : MonoBehaviour
     {

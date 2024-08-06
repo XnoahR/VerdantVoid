@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
-namespace Assets.Code.Scripts.ChatSystem
+namespace VerdantVoid.Code.Scripts.ChatSystem
 {
     [TrackColor(0.736f, 0.214f, 0.381f)]
     [TrackClipType(typeof(ChatBubblePlayableAsset))]

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Code.Scripts.Managers
+namespace VerdantVoid.Code.Scripts.Managers
 {
     public class LoadingScreenManager : MonoBehaviour
     {

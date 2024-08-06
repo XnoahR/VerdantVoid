@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Code.Scripts.Managers;
+using VerdantVoid.Code.Scripts.Managers;
 
 public class ObjectiveInteraction : Item
 {

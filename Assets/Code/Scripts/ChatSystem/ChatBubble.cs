@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Code.Scripts.Managers;
+using VerdantVoid.Code.Scripts.Managers;
 
-namespace Assets.Code.Scripts.ChatSystem
+namespace VerdantVoid.Code.Scripts.ChatSystem
 {
     public class ChatBubble : MonoBehaviour
     {
