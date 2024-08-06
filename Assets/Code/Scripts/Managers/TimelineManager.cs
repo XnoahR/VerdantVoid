@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 
-namespace VerdantVoid.Code.Scripts.Managers
+namespace VerdantVoid.Managers
 {
     public class TimelineManager : MonoBehaviour
     {

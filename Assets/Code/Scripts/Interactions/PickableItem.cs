@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VerdantVoid.Code.Scripts.Managers;
+using VerdantVoid.Managers;
 
 public class PickableItem : Item
 {

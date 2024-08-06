@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VerdantVoid.Code.Scripts.Managers;
-using VerdantVoid.Code.Scripts.ChatSystem;
+using VerdantVoid.Managers;
+using VerdantVoid.ChatSystem;
 
 public abstract class Item : MonoBehaviour, IInteractable, IChatable
 {

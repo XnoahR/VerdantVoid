@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace VerdantVoid.Code.Scripts.Managers
+namespace VerdantVoid.Managers
 {
     public class UIManager : MonoBehaviour
     {

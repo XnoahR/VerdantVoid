@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace VerdantVoid.Code.Scripts.Managers
+namespace VerdantVoid.Managers
 {
     public class SpeakerManager : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using System.Collections.Generic;
 
-namespace VerdantVoid.Code.Scripts.ChatSystem
+namespace VerdantVoid.ChatSystem
 {
 
     public class ChatBubblePlayableBehaviour : PlayableBehaviour

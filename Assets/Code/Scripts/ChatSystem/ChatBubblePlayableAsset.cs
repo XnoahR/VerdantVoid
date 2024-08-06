@@ -3,7 +3,7 @@ using UnityEngine.Playables;
 using System.Collections.Generic;
 
 
-namespace VerdantVoid.Code.Scripts.ChatSystem
+namespace VerdantVoid.ChatSystem
 {
     [System.Serializable]
     public class ChatBubblePlayableAsset : PlayableAsset

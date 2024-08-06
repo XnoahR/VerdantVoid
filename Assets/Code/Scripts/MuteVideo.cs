@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video; // Required for accessing VideoPlayer
-using VerdantVoid.Code.Scripts.Managers; // Required for accessing BacksoundManager
+using VerdantVoid.Managers; // Required for accessing BacksoundManager
 
 public class MuteVideo : MonoBehaviour
 {

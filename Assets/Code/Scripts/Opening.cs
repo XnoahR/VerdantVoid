@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using VerdantVoid.Code.Scripts.Managers;
+using VerdantVoid.Managers;
 
 
 public class Opening : MonoBehaviour
